@@ -1,0 +1,68 @@
+create database sp_final;
+use sp_final;
+
+create table user_list (
+	name varchar(20) primary key,
+    password varchar(100),
+    authority varchar(20),
+    enabled int
+);
+
+insert into user_list values ('user1234', '12345678', 'ROLE_USER', 1);
+commit;
+
+drop table user_list;
+delete from user_list;
+select * from user_list;
+
+
+
+create table simple_bbs (
+	id int auto_increment primary key,
+    writer varchar(20),
+    title varchar(100),
+    content varchar(500),
+    regdate date,
+    count int
+);
+
+insert into simple_bbs values ('1', 'test1234', '제목1234', '내용1234555', '2021-06-07', '0');
+insert into simple_bbs values ('2', 'test1234', '제목12345', '내용1234555', '2021-06-07', '0');
+insert into simple_bbs values ('3', 'test1234', '제목123456', '내용1234555', '2021-06-07', '0');
+commit;
+
+drop table simple_bbs;
+delete from simple_bbs;
+select * from simple_bbs;
+
+
+
+create table sell_game (
+	name varchar(30) primary key,
+    price int,
+    number int
+);
+
+insert into sell_game values ('게임1', 15000, 10);
+insert into sell_game values ('게임2', 25000, 20);
+insert into sell_game values ('게임3', 35000, 10);
+insert into sell_game values ('게임4', 45000, 30);
+insert into sell_game values ('게임5', 55000, 15);
+insert into sell_game values ('게임6', 65000, 20);
+commit;
+
+drop table sell_game;
+delete from sell_game;
+select * from sell_game;
+
+
+
+create table sold_game (
+	name varchar(30) primary key,
+    price int,
+    number int
+);
+
+drop table sold_game;
+delete from sold_game;
+select * from sold_game;

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.it.spring.dao.IUserListDAO">
+    <select id="getUser" resultType="com.it.spring.dto.UserListDTO">
+        select * from user_list where name=#{param1};
+    </select>
+
+    <insert id="saveUser" parameterType="com.it.spring.dto.UserListDTO">
+        insert into user_list(name, password, authority, enabled)
+                    values (#{name}, #{password}, #{authority}, #{enabled});
+    </insert>
+</mapper>

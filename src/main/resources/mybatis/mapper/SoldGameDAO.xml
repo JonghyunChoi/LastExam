@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.it.spring.dao.ISoldGameDAO">
+    <select id="soldList" resultType="com.it.spring.dto.SellGameDTO">
+        select * from sold_game;
+    </select>
+
+    <select id="soldListGetOne" resultType="com.it.spring.dto.SellGameDTO">
+        select * from sold_game where name=#{param1};
+    </select>
+
+    <insert id="insertList" parameterType="com.it.spring.dto.SoldGameDTO">
+        insert into sold_game(name, price, number) values(#{param1}, #{param2}, #{param3});
+    </insert>
+
+    <update id="updateList">
+        update sold_game set number = number + 1 where name=#{param1};
+    </update>
+
+    <update id="refundList">
+        update sold_game set number = number - 1 where name=#{param1};
+    </update>
+    
+    <delete id="deleteList">
+        delete from sold_game where name=#{param1};
+    </delete>
+</mapper>
